@@ -20,6 +20,11 @@ export const GlobalStyles = createGlobalStyle`
   .___gatsby{
     position: absolute;
   }
+  body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
   main{
     padding-top: 3.5rem;
   }
