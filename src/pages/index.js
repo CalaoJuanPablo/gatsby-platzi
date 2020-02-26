@@ -1,14 +1,31 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import { SEO, Jumbo } from "../components"
 
-const IndexPage = () => (
-  <>
-    <SEO title="Home" />
-    <Jumbo />
-    <Link to="/gracias/">Go to gracias</Link>
-  </>
-)
+export const query = graphql`
+  query GET_DESCRIPTION {
+    allSite {
+      edges {
+        node {
+          siteMetadata {
+            description
+          }
+        }
+      }
+    }
+  }
+`
+
+const IndexPage = ({ data }) => {
+  const { description } = data.allSite.edges[0].node.siteMetadata
+  return (
+    <>
+      <SEO title="Home" />
+      <Jumbo description={description} />
+      <Link to="/gracias/">Go to gracias</Link>
+    </>
+  )
+}
 
 export default IndexPage
