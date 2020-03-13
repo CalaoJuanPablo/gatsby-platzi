@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import { SEO, Jumbo } from "../components"
+import {Products} from "../components"
 
 export const query = graphql`
 	query GET_DATA {
@@ -15,21 +16,22 @@ export const query = graphql`
 			}
 		}
 
-		allStripeSku {
+		allStripeSku(sort: {fields: product___created}) {
 			edges {
-			  node {
-				id
-				price
-				product {
-				  id
-				  name
-				  metadata {
-					description
-					img
-					wear
-				  }
+				node {
+					id
+					price
+					product {
+						id
+						created
+						name
+						metadata {
+							description
+							img
+							wear
+						}
+					}
 				}
-			  }
 			}
 		}
 	}
@@ -37,11 +39,13 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => {
 	const { description } = data.allSite.edges[0].node.siteMetadata
+	const products = data.allStripeSku.edges
+	console.log(products)
 	return (
 	  <>
 		<SEO title="Home" />
 		<Jumbo description={description} />
-		<Link to="/gracias/">Go to gracias</Link>
+		<Products products={products} />
 	  </>
 	)
   }
