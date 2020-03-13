@@ -40,7 +40,6 @@ export const query = graphql`
 const IndexPage = ({ data }) => {
 	const { description } = data.allSite.edges[0].node.siteMetadata
 	const products = data.allStripeSku.edges
-	console.log(products)
 	return (
 	  <>
 		<SEO title="Home" />
