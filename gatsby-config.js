@@ -3,11 +3,11 @@ require("dotenv").config({
 })
 
 module.exports = {
-    siteMetadata: {
-        title: `Platzi Swag`,
-        description: `El mejor swag para Nunca parar de aprender.`,
-        author: `@CalaoJuanPablo`,
-    },
+  siteMetadata: {
+    title: `PlatziSwag`,
+    description: `El mejor swag de Platzi disponible para ti`,
+    author: `@CalaoJuanPablo`,
+  },
     plugins: [
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-stripe`,

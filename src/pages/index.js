@@ -35,12 +35,14 @@ export const query = graphql`
 	}
 `
 
-const IndexPage = ({data}) => (
-  <>
-    <SEO title="Home" />
-    <Jumbo description={data.allSite.edges[0].node.siteMetadata.description} />
-    <Link to="/gracias/">Go to gracias</Link>
-  </>
-)
-
+const IndexPage = ({ data }) => {
+	const { description } = data.allSite.edges[0].node.siteMetadata
+	return (
+	  <>
+		<SEO title="Home" />
+		<Jumbo description={description} />
+		<Link to="/gracias/">Go to gracias</Link>
+	  </>
+	)
+  }
 export default IndexPage
