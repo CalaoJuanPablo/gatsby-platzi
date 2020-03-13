@@ -17,7 +17,7 @@ const Header = () => (
           <Link to="/">Productos</Link>
         </MenuItem>
         <MenuItem margin>
-          <a href="http://www.platzi.com" target="_blank">
+          <a href="http://www.platzi.com" target="_blank" rel="noopener noreferrer">
             Platzi
           </a>
         </MenuItem>
